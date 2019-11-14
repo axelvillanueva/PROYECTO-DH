@@ -1,0 +1,20 @@
+#barraN{
+    border-radius: 40px;
+}
+nav > div{
+    font-size: 1.5em;
+}
+#imgf{
+    background-image: url(../img/bg.jpeg);
+    background-size: cover;
+    height: 94vh;
+}
+.fixed-top{
+    margin-right: 40px;
+    margin-left: 40px;
+    border-color: red;
+    border-style: solid;
+}
+.navbar-brand{
+    font-size: 40px;
+}

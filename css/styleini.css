@@ -1,0 +1,23 @@
+#barraN{
+    border-radius: 40px;
+}
+nav > div{
+    font-size: 1.5em;
+}
+#imgf{
+    background-image: url(../img/fondo2.jpg);
+    background-size:contain;
+    height: 41vw;
+}
+.fixed-top{
+    margin-right: 40px;
+    margin-left: 40px;
+    border-color: red;
+    border-style: solid;
+}
+.navbar-brand{
+    font-size: 40px;
+}
+.card-deck{
+    margin-right: 0px;
+}
