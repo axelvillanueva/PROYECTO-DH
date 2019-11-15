@@ -1,117 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/styleFaqs.css">
+    <link rel="stylesheet" href="css/Faqs.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AYUDA</title>
+    <title>Soporte</title>
 </head>
 <body>
-    <div class="container-fluid"><!--Con este container-fluid ocupo todo el body para luego dividirlo en 12 columnas utilizando ROW-->
-        <header><!--La etiqueta header solo cumple la función de ordenar semanticamente-->
-            <nav id="black" class="navbar fixed-top border-bottom border-primary"><!--La barra de navegación la ubique dentro del header y ya viene predefinida por bootstrap como responsive por eso no necesita que apliquemos ROW-->
-                <span class="navbar-brand mb-0 h1"><h3 class="border border-primary rounded-pill p-2">Preguntas Frecuentes</h3></span>
-                <ul class="nav">
-                    <li class="nav-item mr-n4">
-                        <a class="nav-link" href="INICIO.html"><button type="button" class="btn btn-primary">Inicio</button></a>
-                    </li>
-                    <li class="nav-item mr-n4">
-                        <a class="nav-link" href="Log-in.html"><button type="button" class="btn btn-primary">Ingresar</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Registro.html"><button type="button" class="btn btn-primary">Registrarse</button></a>
-                    </li>
-                    <li>
-                        <form class="form-inline mt-2">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Escribe tu consulta" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                        </form>
-                    </li>
-                </ul> 
-            </nav>
-        </header>
-        <section><!--Con este section separo semanticamente la barra de navegación del contenido principal de la página-->
-            <div class="row justify-content-center mt-5 mb-5"><!--Con este div divido, usando la class ROW, en 12 columnas en container-fluid del principio, con justify-content-center le digo que el proximo div que cree va ir justo al centro-->  
-                <div id="black" class="col-4 pt-5 pb-5"><!--Este div es la caja negra del centro, con la class col-4 hago que ocupe solo 4 de las 12 columnas-->
-                    <section class="row">
-                        <article class="col-12">
-                            <h5>¿Cómo accedo a jugar?</h5>
-                            <p class="font-italic ml-2 text-muted">Creando una cuenta, haciendo click en el botón REGISTRARSE, completando el formulario y siguiendo los pasos de validación.</p>
-                            <p class="font-italic ml-2 text-muted">Si posee cuenta, haga click en el botón INGRESAR, complete con nombre de usuario y contraseña.</p>
-                        </article>
-                        <article class="col-12">
-                            <h5>¿Olvido su contraseña o cuenta bloqueada?</h5>
-                            <p class="font-italic ml-2 text-muted">Haga click en el botón INGRESAR, luego haga click en el enlace con la frase OLVIDASTE TU CONTRASEÑA? Y complete con su dirección de correo
-                                E-mail, llegará a su casilla un código para validar nueva contraseña.</p>
-                        </article>
-                        <article class="col-12">
-                            <h5>¿Puedo poseer más de una cuenta?</h5>
-                            <p class="font-italic ml-2 text-muted">Puede poseer un total de tres (3) cuentas como máximo, tener en cuenta que para que esto sea posible debe tener instalada la app 
-                                GOOGLE PLAY.
-                            </p>
-                        </article>
-                        <article class="col-12">
-                            <h5>¿En algún momento debo pagar algo?</h5>
-                            <p class="font-italic ml-2 text-muted">El juego y sus actualizaciones son completamente gratuitos. Pero también contamos con una tienda, en donde se pueden comprar complementos visuales 
-                                y algunas mejoras que haran más entretenido el juego y su experiencia se volverá más gratificante.  
-                            </p>
-                        </article>
-                        <article class="col-12">
-                            <h5>El juego posee anuncios publicitarios.</h5>
-                            <p class="font-italic ml-2 text-muted">En algunos casos, los anuncios publicitarios, serán requizito para poder acceder a algunas caracteristicas especiales o a fases de bonus. Esto 
-                                se debe, en parte, a que la publicidad constitutye fuente de ingresos económicos para continuar desarrollando y mejorando el juego.</p>
-                        </article>
-                        <article class="col-12">
-                            <h5>Acerca de este juego.</h5>
-                            <p class="font-italic ml-2 text-muted">Demuestra tu habilidad y conocimiento, en este asombroso juego que desafia tu mente. Combinando el clasico juego de preguntas y respuestas con espectaculares
-                                escenas cinematográficas. Disfrutarás de un entorno super colorido, una ambientación futurista y una interfaz muy sencilla e intuitiva.
-                            </p>
-                        </article>
-                        <article class="col-12">
-                            <h5>Caracteristicas especiales.</h5>
-                                <ul class="font-italic ml-2">
-                                    <li class="text-muted">Gana gemas para subir de nivel.</li>
-                                    <li class="text-muted">Colecciona reacciones y emotes divertidos.</li>
-                                    <li class="text-muted">Desbloquea niveles y personajes especiales.</li>
-                                    <li class="text-muted">Desafia amigos o adversarios online </li>
-                                </ul>
-                        </article>
-                        <article class="col-12">
-                            <h5>Especificaciones técnicas.</h5>
-                            <ul class="font-italic ml-2">
-                                    <li class="text-muted">VERSIÓN: 1.0.</li>
-                                    <li class="text-muted">ACTUALIZACION: 11 NOV. 2019.</li>
-                                    <li class="text-muted">DESCARGAS: 1,000,000.</li>
-                                    <li class="text-muted">TAMAÑO DE DESCARGA: 100 MB.</li>
-                                    <li class="text-muted">LANZAMIENTO: 1 NOV. 2019.</li>
-                                </ul>
-                        </article>
-                    </section>
-                </div>
-            </div>
-       </section>
-       <footer ><!--Footer para indicar semanticamente pie de página, además puse la barra de navegación del pie de página y fura del section donde está el div con la class col-4, para que no genere conflicto de centrado-->
-            <nav id="black" class="navbar fixed-bottom border-top border-primary">
-                <h6 class="font-italic"><img class="rounded-circle" src="img/logo.jpg" alt="logotipo" width="60px">  &copy 2019 Hecho en Argentina. Todos los derechos reservados.</h6>
-                <ul class="nav  justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://es-la.facebook.com/" target="_black"><img class="border border-primary rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://twitter.com/login?lang=es" target="_black"><img class="border border-primary rounded-circle" src="img/icono-twitter.png" alt="logo-twitter" width="40px"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com/?hl=es-la" target="_black"><img class="border border-primary rounded-circle" src="img/icono-instagram.png" alt="logo-instagram" width="40px"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/?gl=AR&hl=es-419" target="_black"><img class="border border-danger rounded-circle" src="img/icono-youtube.png" alt="logo-youtub" width="40px"></a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
+    <div class="container-fluid">
+        <div class="row">
+            <header id="black" class="col-12 border border-primary">
+                <nav class="navbar">
+                    <h5 class="text-primary border border-primary rounded-pill p-2">SOPORTE</h5>
+                    <ul class="nav  aling-item-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="INICIO.html"><button type="button" class="btn btn-primary">Inicio</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Log-in.html"><button type="button" class="btn btn-primary">Ingresar</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Registro.html"><button type="button" class="btn btn-primary">Registrarse</button></a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        
+        <div class="row justify-content-center">
+            <section id="lateral" class="col-sm-3 col-md-3"></section>
+            <section id="black" class="col-sm-6 col-md-6 border-left border-right border-primary">
+                <article>
+                    <h5 class="text-center">Preguntas frecuentes</h5>
+                    <hr class="border border-primary">
+                </article>
+                <article>
+                    <h5>¿Cómo accedo a jugar?</h5>
+                    <p class="font-italic text-muted">Creando una cuenta, haciendo click en el botón REGISTRARSE, completando el formulario y siguiendo los pasos de validación.</p>
+                    <p class="font-italic text-muted">Si posee cuenta, haga click en el botón INGRESAR, complete con nombre de usuario y contraseña.</p>
+                </article>
+                <article>
+                    <h5>¿Olvido su contraseña o cuenta bloqueada?</h5>
+                    <p class="font-italic text-muted">Haga click en el botón INGRESAR, luego haga click en el enlace con la frase OLVIDASTE TU CONTRASEÑA? Y complete con su dirección de correo
+                        E-mail, llegará a su casilla un código para validar nueva contraseña.
+                    </p>
+                </article>
+                <article>
+                    <h5>¿Puedo poseer más de una cuenta?</h5>
+                    <p class="font-italic text-muted">Puede poseer un total de tres (3) cuentas como máximo, tener en cuenta que para que esto sea posible debe tener instalada la app GOOGLE PLAY.</p>
+                    </article>
+                <article>
+                    <h5>¿En algún momento debo pagar algo?</h5>
+                    <p class="font-italic text-muted">El juego y sus actualizaciones son completamente gratuitos. Pero también contamos con una tienda, en donde se pueden comprar complementos visuales
+                        y algunas mejoras que haran más entretenido el juego y su experiencia se volverá más gratificante.
+                    </p>
+                </article>
+                <article>
+                    <h5>El juego posee anuncios publicitarios.</h5>
+                    <p class="font-italic text-muted">En algunos casos, los anuncios publicitarios, serán requizito para poder acceder a algunas caracteristicas especiales o a fases de bonus. Esto
+                        se debe, en parte, a que la publicidad constitutye fuente de ingresos económicos para continuar desarrollando y mejorando el juego.</p>
+                </article>
+                <article>
+                    <h5>Acerca de este juego.</h5>
+                    <p class="font-italic text-muted">Demuestra tu habilidad y conocimiento, en este asombroso juego que desafia tu mente. Combinando el clasico juego de preguntas y respuestas con espectaculares
+                        imagenes. Disfrutarás de un entorno super colorido, una ambientación futurista y una interfaz muy sencilla e intuitiva.
+                    </p>
+                </article>
+                <article>
+                    <h5>Caracteristicas especiales.</h5>
+                    <ul class="font-italic">
+                        <li class="text-muted">Gana gemas para subir de nivel.</li>
+                        <li class="text-muted">Colecciona reacciones y emotes divertidos.</li>
+                        <li class="text-muted">Desbloquea niveles y personajes especiales.</li>
+                        <li class="text-muted">Desafia amigos o adversarios online </li>
+                    </ul>
+                </article>
+                <article>
+                    <h5>Especificaciones técnicas.</h5>
+                     <ul class="font-italic">
+                        <li class="text-muted">VERSIÓN: 1.0.</li>
+                        <li class="text-muted">ACTUALIZACION: 11 NOV. 2019.</li>
+                        <li class="text-muted">DESCARGAS: 1,000,000.</li>
+                        <li class="text-muted">TAMAÑO DE DESCARGA: 100 MB.</li>
+                        <li class="text-muted">LANZAMIENTO: 1 NOV. 2019.</li>
+                    </ul>
+                </article>
+                <hr class="border border-primary">
+            </section>
+            <section id="lateral" class="col-sm-3 col-md-3"></section>
+        </div>
+
+        <div class="row">
+            <footer id="black" class="col-12  border border-primary" >
+                <nav class="navbar ">
+                    <a class="border border-primary rounded-circle p-2" href="INICIO.html">
+                        <img src="img/logo.jpg" width="40" height="40" class="d-inline-block align-center rounded-circle" alt="logotipo">
+                    </a>
+                    <h5 class="text-primary border border-primary rounded-pill p-3 d-none d-sm-block">&copy 2019 Derechos reservados.</h5>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://es-la.facebook.com/" target="_black"><img class="border border-primary rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://twitter.com/login?lang=es" target="_black"><img class="border border-primary rounded-circle" src="img/icono-twitter.png" alt="logo-twitter" width="40px"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com/?hl=es-la" target="_black"><img class="border border-primary rounded-circle" src="img/icono-instagram.png" alt="logo-instagram" width="40px"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/?gl=AR&hl=es-419" target="_black"><img class="border border-primary rounded-circle" src="img/icono-youtube.png" alt="logo-youtub" width="40px"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
-<!---->

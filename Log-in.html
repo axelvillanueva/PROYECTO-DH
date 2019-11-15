@@ -3,26 +3,99 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="css/stylelog.css" rel="stylesheet">
     <title>Iniciar sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
   </head>
   <body>
-      <div class="login-caja">
-        <img class="lobo" src="img/logo.jpg" alt="logo de ejemplo">
-        <h1>Inicia sesión</h1>
-        <form>
+                                              <!--BARRA DE NAVEGACIÓN -->
+      <header class="container">
+          <nav  id="barraN" class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white;">
+              <a class="navbar-brand mb-0 h1">
+              <h3 class="border border text-white rounded-pill p-2 m-0" style="background: steelblue;">Bienvenido</h3>
+              </a>
+              <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="menu">
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nabvar-item">
+                          <a href="#" class="nav-link active">Ranking global</a>
+                      </li>
+                      <li class="nabvar-item">
+                          <a href="#" class="nav-link active">Reglas</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
+                              Soporte!
+                          </a>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="Faqs.html">Preguntas Frecuentes</a>
+                              <a class="dropdown-item" href="#">Soporte Falso</a>
+                          </div>
+                      </li>
+                  </ul>
+                  <form class="form-inline">
+                      <a class="btn text-white p-3 ml-3 mr-3" style="background-color: red;" href="Registro.html">Registrarse</a>
+                      <a class="btn text-white p-3 mr-3" style="background-color: red;" href="INICIO.html">Página principal</a>
+                  </form>
+              </div>
+          </nav>
+      </header>
+                                                  <!--FORMULARIO -->
+    <div class="container">
+      <div class="row contenedor justify-content-center">
+        <div class="col-lg-3 col-md-6   border rounded position-absolute text-white login-caja mt-4" style="background:black; margin-bottom:80px;">
+          <img class="position-absolute rounded-circle d-block lobo" src="img/logo.jpg" alt="logo de ejemplo" style="width: 100px; top: -50px; left: calc(50% - 50px);">   <!--LOGO-->
+          <h4 class="text-center pt-5 pb-3 mt-2">Iniciar sesión</h4>
+
+          <form>
+            <div class="row">
           <!-- USERNAME -->
-          <label for="username">Nombre de usuario</label>
-          <input type="text" placeholder="Ingresa tu nombre de usuario">
+            <div class="col-12 form-group">
+              <label class="font-weight-bold p-o m-0" for="username">Nombre de usuario</label>
+            <input type="text" class="text-white w-100 mb-1 bg-transparent form-control" placeholder="Ingresa tu nombre de usuario">
+              </div>
           <!-- PASSWORD -->
-          <label for="password">Contraseña</label>
-          <input type="password" placeholder="Ingresa tu contraseña">
-          <label for="remember-me">Recordarme</label>
-          <input type="checkbox" name="Recordarme">
-          <input type="submit" value="Iniciar sesión">
-          <a href="#">Olvidaste tu contraseña?</a><br>
-          <a href="registro.html">No tienes una cuenta? Regístrate</a>
-        </form>
+            <div class="col-12 form-group">
+              <label class="font-weight-bold p-o m-0" for="password">Contraseña</label>
+            <input type="password" class="text-white w-100 mb-1 bg-transparent form-control" placeholder="Ingresa tu contraseña">
+              </div>
+          <!-- REMEMBER-ME -->
+            <div class="col-12 form-group">
+              <label class="font-weight-bold p-0 m-0" ><input class="float-right ml-1 mt-1" type="checkbox" name="Recordarme">Recordarme</label>
+                </div>
+            <input class="w-100 mb-3 text-white mx-3 bg-danger border-0" style="height: 40px; font-size: 18px; border-radius: 20px;" type="submit" value="Iniciar sesión">
+              <a class="help-block col-6 text-decoration-none mb-1" style="color:darkgrey;" href="#">Olvidaste tu contraseña?</a><br>
+              <a class="help-block col-6 text-decoration-none mb-1" style="color:darkgrey;" href="registro.html">No tienes una cuenta? Regístrate</a>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
+                                              <!--PIE DE PÁGINA -->
+    <footer >
+         <nav id="black" class="navbar fixed-bottom border-top" style="height: 60px;">
+             <h6 class="font-italic position-relative text-white" style="bottom: 15%;"><img class="rounded-circle" src="img/logo.jpg" alt="logotipo" width="60px">  &copy 2019 Hecho en Argentina. Todos los derechos reservados.</h6>
+             <ul class="nav  justify-content-end">
+                 <li class="nav-item">
+                     <a class="nav-link position-relative" style="bottom: 15%;" href="https://es-la.facebook.com/" target="_black"><img class="border border-primary rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px"></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link position-relative" style="bottom: 15%;" href="https://twitter.com/login?lang=es" target="_black"><img class="border border-primary rounded-circle" src="img/icono-twitter.png" alt="logo-twitter" width="40px"></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link position-relative" style="bottom: 15%;" href="https://www.instagram.com/?hl=es-la" target="_black"><img class="border border-primary rounded-circle" src="img/icono-instagram.png" alt="logo-instagram" width="40px"></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link position-relative" style="bottom: 15%;" href="https://www.youtube.com/?gl=AR&hl=es-419" target="_black"><img class="border border-danger rounded-circle" src="img/icono-youtube.png" alt="logo-youtub" width="40px"></a>
+                 </li>
+             </ul>
+         </nav>
+     </footer>
   </body>
 </html>
