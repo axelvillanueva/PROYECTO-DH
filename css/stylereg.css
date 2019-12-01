@@ -1,10 +1,9 @@
 body{
-  background: url(../img/bg.jpg) fixed center top;
+  background: url(../img/bg-80.jpg) fixed center top;
   background-size: cover;
-  font-family: sans-serif;
-  padding-top: 150px;
-  padding-bottom: 120px;
 }
+.barra-busqueda{background-color: black; border-top: solid 4px; border-bottom: solid 4px;}
+.enlace-nav:hover{background-color: red; color: white; text-decoration: none; transition: 0.7s; transform: scale(1.5); opacity: .8; text-transform: uppercase;}
   .formulario-registro input[type="text"],
   .formulario-registro input[type="email"],
   .formulario-registro input[type="password"]{
@@ -18,11 +17,9 @@ body{
   }
   .formulario-registro a{
     font-size: 12px;
-    color: darkgrey;
+    font-weight: bold;
   }
-  .formulario-registro a:hover{
-    color: #fff;
+
+  nav > div{
+      font-size: 1.2em;
   }
-  #black{
-    background-color:black;
-    height: 60px;}

@@ -1,9 +1,9 @@
+.barra-busqueda{background-color: black; border-top: solid 4px; border-bottom: solid 4px;}
+.enlace-nav:hover{background-color: red; color: white; text-decoration: none; transition: 0.7s; transform: scale(1.5); opacity: .8; text-transform: uppercase;}
 body{
-  background: url(../img/bg.jpg) fixed center top;
+  background: url(../img/bg-80.jpg) fixed center top;
   background-size: cover;
-  font-family: sans-serif;
-  height: 100vh;
-  padding-top: 120px;
+  padding-bottom: 60px;
 }
 .login-caja input[type="text"],
 .login-caja input[type="password"]{
@@ -15,7 +15,11 @@ body{
 .login-caja a:hover{
   color: #fff;
 }
-#black{
-  background-color:black;
-  height: 60px;
+.container a{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+nav > div{
+    font-size: 1.2em;
 }

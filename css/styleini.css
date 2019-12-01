@@ -1,23 +1,14 @@
-#barraN{
-    border-radius: 40px;
-}
+
+.barra-busqueda{background-color: black; border-top: solid 4px; border-bottom: solid 4px;}
+.enlace-nav:hover{background-color: red; color: white; text-decoration: none; transition: 0.7s; transform: scale(1.5); opacity: .8; text-transform: uppercase;}
+.portada{width: 100vw; height: 40vh;}
+
 nav > div{
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
-#imgf{
-    background-image: url(../img/fondo.jpg);
-    background-size:contain;
-    height: 41vw;
-}
-.fixed-top{
-    margin-right: 40px;
-    margin-left: 40px;
-    border-color: red;
-    border-style: solid;
-}
-.navbar-brand{
-    font-size: 40px;
-}
+section{background-image: url(../img/bg-80.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;}
 .card-deck{
     margin-right: 0px;
 }
+.footer{background-color: black; border-top: solid 4px; border-bottom: solid 4px;}
+.img-fluid:hover{transition: 0.7s; transform: scale(1.3);}

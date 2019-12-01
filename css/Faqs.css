@@ -1,16 +1,22 @@
-*{
-    box-sizing: border-box;
-    color: white;
-    font-family: sans-serif;
-    font-size: 14px;
+body{
+  background: url(../img/bg-80.jpg) fixed center top;
+  background-size: cover;
+  font-family: sans-serif;
+  padding-bottom: 65px;
+}
+.barra-busqueda{background-color: black; border-top: solid 4px; border-bottom: solid 4px;}
+.enlace-nav:hover{background-color: red; color: white; text-decoration: none; transition: 0.7s; transform: scale(1.4); opacity: .8; text-transform: uppercase;}
+summary{
+  font-weight: bold;
+  font-size: 24px;
 }
 
-#lateral{
-    background-attachment: fixed;
-    background-image: url(../img/joystick.jpg);
-    background-size: auto;
+nav > div{
+    font-size: 1.3em;
 }
-#black{
-    background-color: black;
-   
+.navbar-brand{
+    font-size: 40px;
+    }
+p{
+  font-size: 18px;
 }

@@ -10,81 +10,103 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
-
+        <div class="container-fluid">
                 <!--Barra de navegacion-->
-                <header class="container">
-                    <nav  id="barraN" class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-                        <a class="navbar-brand">
-                           <img src="img/logo.jpg" height="60px"> Pregunta3.
-                        </a>
-                        <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="menu">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nabvar-item">
-                                    <a href="#" class="nav-link active">Ranking global</a>
-                                </li>
-                                <li class="nabvar-item">
-                                    <a href="#" class="nav-link active">Reglas</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#">
-                                        Soporte!
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="Faqs.html">Preguntas Frecuentes</a>
-                                        <a class="dropdown-item" href="#">Soporte Falso</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <form class="form-inline">
-                                <a class="btn text-white p-3 ml-3" style="background-color: red;margin-right: 0.29rem!important" href="Log-in.html">Ingresar</a>
-                                <a class="btn text-white p-3" style="background-color: red;" href="Registro.html">Registrarse</a>
-                            </form>
-                        </div>
-                    </nav>
-                    
-                </header>
-                <div id="imgf" class="container-fluid">
-                <!--Centro pag-->
-                    <div class="container" style="padding-top:8%;margin-bottom: 8%;">
-                        <div class="card-deck text-center">
-                            <div class="card shadow-sm">
-                                    <div class="card-header">
-                                        <h4>Estás registrado?</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title pricing-card-title m-5">Entrá a tu cuenta y Jugá!</h2>
-                                        <a class="btn text-white p-3 m3 col-md-10 cBT" style="background-color: red;" href="Log-in.html">Ingresar!</a>
-                                    </div>
-                            </div>
-                            <div class="card shadow-sm">
-                                <div class="card-header" style="padding-bottom: 20px;">
-                                    <h4 class="my-0">No estás registrado?</h4>
-                                </div>
-                                <div class="card-body">
-                                    <h2 class="card-title pricing-card-title m-5">Creá tu cuenta gratis! </h2>
-                                    <a class="btn text-white p-3 mr-3 col-md-12 cBT" style="background-color: red;" href="Registro.html">Registrarse!</a>
-                                </div>
-                            </div>
-                        </div>
+          <header class="row">
+            <div class="col-12 d-flex portada p-0"><img class="w-100" src="img/banner-brain.jpg" alt=""></div>
+            <nav  id="barraN" class="col-12 barra-busqueda navbar navbar-expand-lg navbar-light p-0 justify-content-center">
+              <a class="navbar-brand mb-0 mx-5 text-white" style="font-size: 38px;">Bienvenido</a>
+              <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon" style="background-color:gainsboro;"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nabvar-item">
+                    <a href="#" class="enlace-nav nav-link active text-white pl-2" style="text-align-last: center;">Ranking global</a>
+                  </li>
+                  <li class="nabvar-item">
+                    <a href="#" class="enlace-nav nav-link active text-white" style="text-align-last: center;">Reglas</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active  text-white" data-toggle="dropdown" data-target="desplegable" href="#" style="text-align-last: center;">Ayuda</a>
+                    <div class="dropdown-menu" style="background: black;">
+                      <a class="enlace-nav dropdown-item text-white" href="Faqs.html" style="text-align-last: center;">Preguntas Frecuentes</a>
+                      <a class="enlace-nav dropdown-item text-white" href="#" style="text-align-last: center;">Soporte Falso</a>
                     </div>
-                </div>
-                        <!-- Pie de pagina -->
-    <div id="pie" class="container-fluid col-md-12 d-none d-lg-block">
-        <div>
-                <ul class="clear-bot"style="list-style: none;">
-                    <li class="float-left mr-2 border"><a href="#"><img src="img/ifac.png" style="width: 50px;"></a></li>
-                    <li class="float-left mr-2 border"><a href="#"><img src="img/itw.png" style="width: 50px;"></a></li>
-                    <li class="float-left mr-2 border"><a href="#"><img src="img/ins.png" style="width: 50px;"></a></li>
-                    <li class="float-left mr-2 border"><a href="#"><img src="img/iyou.png" style="width: 50px;"></a></li>
-                    <li>© 2019 Copyright:
-                        <a href="#"> Pregunta3.com</a>
-                      </li>
+                  </li>
                 </ul>
+                <form class="form-inline justify-content-center">
+                  <a class="enlace-nav btn text-white p-2 ml-3" style="font-size: 22px; background-color: red; margin-right: 0.29rem!important"href="Registro.html">Registrarse</a>
+                  <a class="enlace-nav btn text-white p-2 mr-3" style="font-size: 22px; background-color: red;" href="Log-in.html">Ingresar</a>
+                </form>
+              </div>
+            </nav>
+          </header>
 
-        </di>
-    </div>
-</body>
+          <section class="row rounded pt-4">
+            <article class="col-12 pt-5 pb-4" style="text-align: -webkit-center;">
+              <h1 class="col-md-6 col-xs-12 py-3 mt-5" style="color:white; font-family: serif; font-size: 3em;font-weight:bold; background:crimson; opacity:90%">Demuestra tu conocimiento</h1>
+              <hr class="col-7 border">
+            </article>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/deportes.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/pregunta.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/historia.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/animales2.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/super-heroes.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/cine-terror.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/los-simpson.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/animes.jpg" alt=""></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><img class="img-fluid rounded w-100" src="img/stark.jpg" alt=""></div>
+
+            <div class="container" style="padding-top:7%;margin-bottom: 7%;">
+              <div class="card-deck text-center">
+                <div class="card shadow-sm">
+                  <div class="card-header">
+                    <h4>Estás registrado?</h4>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title pricing-card-title m-5">Entrá a tu cuenta y Jugá!</h2>
+                    <a class="btn text-white p-3 m3 col-md-10 cBT" style="background-color: crimson;" href="Log-in.html">Ingresar!</a>
+                  </div>
+                </div>
+                <div class="card shadow-sm">
+                  <div class="card-header" style="padding-bottom: 20px;">
+                    <h4 class="my-0">No estás registrado?</h4>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title pricing-card-title m-5">Creá tu cuenta gratis! </h2>
+                    <a class="btn text-white p-3 mr-3 col-md-12 cBT" style="background-color: crimson;" href="Registro.html">Registrarse!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <footer class="row">
+            <div class="col-12 footer">
+              <nav class="navbar ">
+                <a class="rounded-circle p-2" href="INICIO.html" style="border: solid 2px white;">
+                  <img src="img/logo.jpg" width="40" height="40" class="d-inline-block align-center rounded-circle" alt="logotipo">
+                </a>
+                <h6 class="text-white rounded-pill p-3 d-none d-sm-block" style="border: solid 2px ;">&copy 2019 Derechos reservados.</h6>
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link ml-2 p-0" href="https://es-la.facebook.com/"><img class="rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px" style="border: solid 2px white;"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ml-2 p-0" href="https://twitter.com/login?lang=es"><img class="rounded-circle" src="img/icono-twitter.png" alt="logo-twitter" width="40px" style="border: solid 2px white;"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ml-2 p-0" href="https://www.instagram.com/?hl=es-la"><img class="rounded-circle" src="img/icono-instagram.png" alt="logo-instagram" width="40px" style="border: solid 2px white;"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ml-2 p-0" href="https://www.youtube.com/?gl=AR&hl=es-419"><img class="rounded-circle" src="img/icono-youtube.png" alt="logo-youtub" width="40px" style="border: solid 2px white;"></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </footer>
+      </div>
+  </body>
 </html>
