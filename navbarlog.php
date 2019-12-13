@@ -40,9 +40,10 @@ if (isset(glob("img/Usuarios/perfil$id.*")[0])) {
       </ul>
       <div class="nav-item dropdown" style="right:20px;">
         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#" style="text-align-last: end; color: white;"> <img src="<?php if(isset($archivo)):?><?=$archivo ?><?php else:?>img/logo.jpg<?php endif; ?>" class="rounded-circle" alt="" style="height: 45px; width:45px;"> </a>
-        <div class="dropdown-menu" style="background: black; right: 0px; left: auto;">
-          <a class="enlace-nav dropdown-item text-white" href="Perfil.php" style="text-align-last: center;">Perfil</a>
-          <a class="enlace-nav dropdown-item text-white" href="Logout.php" style="text-align-last: center;">Cerrar sesión</a>
+        <div class="dropdown-menu px-3 pt-3 pb-4" style="background: black; right: 0px; left: auto; text-align-last: center; border-left: solid 3px; border-right:solid 3px; border-bottom:solid 3px;">
+          <a class="usuario item text-muted"><?=$usuario['username']?> <br> <?=$usuario['email']?> </a>
+          <a class="enlace-nav dropdown-item text-white mt-3 pt-3" style="border-top: red solid 1px;" href="Perfil.php">Perfil</a>
+          <a class="enlace-nav dropdown-item text-white pt-2 pb-2"  href="Logout.php">Cerrar sesión</a>
         </div>
       </div>
 
