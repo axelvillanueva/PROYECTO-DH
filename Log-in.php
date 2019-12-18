@@ -5,7 +5,7 @@ $email="";
 if($_POST) {
   $errores=[];
     // 1 - Busco si el email está registrado
-    $usuario = buscamePorEmail($_POST['email']);
+    $usuario = buscamePorEmail(strtolower($_POST['email']));
     if($usuario !== null) {
     // 2 - Si es distinto de null, significa que está registrado el email. Hago la persistencia y solo queda verificar la contraseña.
         $email=$_POST['email'];
