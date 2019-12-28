@@ -39,15 +39,15 @@ include_once('funciones.php');
               <h1 class="col-md-6 col-xs-12 py-3 mt-5" style="color:white; font-family: serif; font-size: 3em;font-weight:bold; background:crimson; opacity:90%">Demuestra tu conocimiento</h1>
               <hr class="col-7 border">
             </article>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#deportesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/deportes.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#curiosidadesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/pregunta.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#historiaModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/historia.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animalesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animales2.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#shModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/super-heroes.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#cineModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/cine-terror.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#losSimpsonsModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/los-simpson.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animes.jpg" alt=""></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#gotModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/stark.jpg" alt=""></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#deportesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/deportes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#curiosidadesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/pregunta.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#historiaModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/historia.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animalesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animales2.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#shModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/super-heroes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#cineModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/cine-terror.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#losSimpsonsModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/los-simpson.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#gotModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/stark.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
 
             <div class="modal fade" id="deportesModal" tabindex="-1" role="dialog" aria-labelledby="deportesModalTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
