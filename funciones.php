@@ -6,7 +6,8 @@ function crearUsuario($datos) //Crea un array con los datos enviados por post y 
         'username' => $datos['username'],
         'email' =>strtolower($datos['email']),
         'name' => $datos['name'],
-        'password' => password_hash($datos['password'], PASSWORD_BCRYPT)
+        'password' => password_hash($datos['password'], PASSWORD_BCRYPT),
+        'pais' => $datos['country']
     ];
     $usuario['id'] = generarID();
       return $usuario;
