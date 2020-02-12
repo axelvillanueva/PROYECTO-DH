@@ -1,6 +1,9 @@
 <?php
 include_once('funciones.php');
-
+require_once 'pdo.php';
+$query=$db->prepare('SELECT * FROM categorias ORDER BY id;');
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_ASSOC);
 
  ?>
 
@@ -39,170 +42,30 @@ include_once('funciones.php');
               <h1 class="col-md-6 col-xs-12 py-3 mt-5" style="color:white; font-family: serif; font-size: 3em;font-weight:bold; background:crimson; opacity:90%">Demuestra tu conocimiento</h1>
               <hr class="col-7 border">
             </article>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#deportesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/deportes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#curiosidadesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/pregunta.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#historiaModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/historia.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animalesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animales2.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#shModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/super-heroes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#cineModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/cine-terror.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#losSimpsonsModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/los-simpson.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#animesModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/animes.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#gotModal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="img/stark.jpg" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <?php foreach ($results as $result): ?>
 
-            <div class="modal fade" id="deportesModal" tabindex="-1" role="dialog" aria-labelledby="deportesModalTitle" aria-hidden="true">
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#<?=str_replace(' ', '', $result['nombre'])?>Modal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="<?=$result['imagen']?>" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+
+            <div class="modal fade" id="<?=str_replace(' ', '', $result['nombre'])?>Modal" tabindex="-1" role="dialog" aria-labelledby="<?=str_replace(' ', '', $result['nombre'])?>ModalTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                   <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="deportesModalTitle">DEPORTES</h5>
+                      <h5 class="modal-title" id="<?=str_replace(' ', '', $result['nombre'])?>ModalTitle"><?=$result['nombre']?></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <img class="img-fluid rounded mx-1" src="img/deportes.jpg" alt="">
+                    <img class="img-fluid rounded mx-1" src="<?=$result['imagen']?>" alt="">
                     <div class="modal-body">
-                      Preguntas sobre deportes
+                      <?=$result['descripcion']?>
                     </div>
                   </div>
                 </div>
               </div>
 
-            <div class="modal fade" id="curiosidadesModal" tabindex="-1" role="dialog" aria-labelledby="curiosidadesModalTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content bg-dark text-white">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="curiosidadesModalTitle">CURIOSIDADES</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <img class="img-fluid rounded mx-1" src="img/pregunta.jpg" alt="">
-                      <div class="modal-body">
-                        Preguntas sobre curiosidades
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <?php endforeach;?>
 
-            <div class="modal fade" id="historiaModal" tabindex="-1" role="dialog" aria-labelledby="historiaModalTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content bg-dark text-white">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">HISTORIA</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <img class="img-fluid rounded mx-1" src="img/historia.jpg" alt="">
-                        <div class="modal-body">
-                          Preguntas sobre historia
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-            <div class="modal fade" id="animalesModal" tabindex="-1" role="dialog" aria-labelledby="animalesModalTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content bg-dark text-white">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="animalesModalTitle">ANIMALES</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <img class="img-fluid rounded mx-1" src="img/animales2.jpg" alt="">
-                          <div class="modal-body">
-                            Preguntas sobre animales
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-              <div class="modal fade" id="shModal" tabindex="-1" role="dialog" aria-labelledby="shModalTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content bg-dark text-white">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="shModalTitle">SUPER HÉROES</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <img class="img-fluid rounded mx-1" src="img/super-heroes.jpg" alt="">
-                              <div class="modal-body">
-                                Preguntas sobre super héroes
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-              <div class="modal fade" id="cineModal" tabindex="-1" role="dialog" aria-labelledby="cineModalTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content bg-dark text-white">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="cineModalTitle">CINE DE TERROR</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <img class="img-fluid rounded mx-1" src="img/cine-terror.jpg" alt="">
-                        <div class="modal-body">
-                          Preguntas sobre cine de terror
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-              <div class="modal fade" id="losSimpsonsModal" tabindex="-1" role="dialog" aria-labelledby="losSimpsonsModalTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content bg-dark text-white">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="losSimpsonsModalTitle">LOS SIMPSONS</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <img class="img-fluid rounded mx-1" src="img/los-simpson.jpg" alt="">
-                            <div class="modal-body">
-                              Preguntas sobre los simpsons
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-              <div class="modal fade" id="animesModal" tabindex="-1" role="dialog" aria-labelledby="animesModalTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content bg-dark text-white">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="animesModalLongTitle">ANIME</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <img class="img-fluid rounded mx-1" src="img/animes.jpg" alt="">
-                          <div class="modal-body">
-                            Preguntas sobre anime
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-            <div class="modal fade" id="gotModal" tabindex="-1" role="dialog" aria-labelledby="gotModalTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content bg-dark text-white">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="gotModalTitle">GAME OF THRONES</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <img class="img-fluid rounded mx-1" src="img/stark.jpg" alt="">
-                          <div class="modal-body">
-                            Preguntas sobre Game of Thrones
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <?php if(!loginController()): ?>
+            <?php if(!loginController()): ?>
 
             <div class="container" style="padding-top:7%;margin-bottom: 7%;">
               <div class="card-deck text-center">
@@ -238,7 +101,7 @@ include_once('funciones.php');
                 <a class="rounded-circle p-2" href="INICIO.php" style="border: solid 2px white;">
                   <img src="img/logo.jpg" width="40" height="40" class="d-inline-block align-center rounded-circle" alt="logotipo">
                 </a>
-                <h6 class="text-white rounded-pill p-3 d-none d-sm-block" style="border: solid 2px ;">&copy 2019 Derechos reservados.</h6>
+                <h6 class="text-white rounded-pill p-3 d-none d-sm-block" style="border: solid 2px ;">&copy 2020 Derechos reservados.</h6>
                 <ul class="nav">
                   <li class="nav-item">
                     <a class="nav-link ml-2 p-0" href="https://es-la.facebook.com/"><img class="rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px" style="border: solid 2px white;"></a>

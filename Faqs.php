@@ -79,9 +79,8 @@ include_once('funciones.php');
                 <details>
                   <summary>Especificaciones técnicas.</summary>
                      <ul class="font-italic">
-                        <li class="">VERSIÓN: 1.0.</li>
-                        <li class="">ACTUALIZACION: 11 NOV. 2019.</li>
-                        <li class="">DESCARGAS: 1,000,000.</li>
+                        <li class="">VERSIÓN: 2.0.</li>
+                        <li class="">ÚLTIMA ACTUALIZACION: 12 FEB. 2020.</li>
                         <li class="">TAMAÑO DE DESCARGA: 100 MB.</li>
                         <li class="">LANZAMIENTO: 1 NOV. 2019.</li>
                     </ul>
@@ -95,7 +94,7 @@ include_once('funciones.php');
       <!-- Pie de pagina -->
       <footer >
            <nav id="black" class="navbar mt-5 fixed-bottom" style="height: 60px;">
-               <h6 class="font-italic position-relative text-white" style="bottom: 15%;"><a class="" href="INICIO.php"><img class="rounded-circle" src="img/logo.jpg" alt="logotipo" width="60px"></a>  &copy 2019 Derechos reservados.</h6>
+               <h6 class="font-italic position-relative text-white" style="bottom: 15%;"><a class="" href="INICIO.php"><img class="rounded-circle" src="img/logo.jpg" alt="logotipo" width="60px"></a>  &copy 2020 Derechos reservados.</h6>
                <ul class="nav  justify-content-end">
                    <li class="nav-item float-right">
                        <a class="nav-link position-relative" style="bottom: 15%;" href="https://es-la.facebook.com/" target="_black"><img class="border border-primary rounded-circle" src="img/icono-facebook.png" alt="logo-facebook" width="40px"></a>
