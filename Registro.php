@@ -37,7 +37,7 @@ if($_POST)
 
     // 3 - Crear Usuario
       if (count($errores) == 0) {
-    $usuario = new Usuario($_POST['name'], $_POST['email'], $_POST['password'], $_POST['username'], $_POST['country']);
+    $usuario = new Usuario($_POST['name'], $_POST['email'], $_POST['password'], str_replace(' ', '', $_POST['username']), $_POST['country']);
 
     $mail = $usuario->getEmail();
     // 4 - Guardar imagen

@@ -1,6 +1,3 @@
-{"username":"Sergiorodas7","email":"sergiorodasbj@hotmail.com","name":"Sergio Rodas","password":"$2y$10$izjiNAJpWsbvw1LnoJsi1uuzDd7\/lNZPqbdPpiEnuVDqpbE6E2H46","id":1}
-{"username":"Slayer78","email":"ulisesarmolla78@gmail.com","name":"Ulises Armolla","password":"$2y$10$iZ8DLlke1VHrb3eHD1VTvuWEX8KEKg3aFe2b3xbcKQ.YXvIsNhnSK","id":2}
-{"username":"Stark","email":"axel11@gmail.com","name":"Axel Villanueva","password":"$2y$10$GzlGxOJkQDT5SuvKKUe8YeUxjrCzytPJhHtcdI6w\/aWyY03qd7P3O","id":3}
-{"username":"dasdasd7","email":"vegeta777@gmail.com","name":"ramdom asasd","password":"$2y$10$e\/0bShhOJSl8FN37llP\/Q.6L3s2GK6hDRAlxQ0H2WF63uR9VxNR1.","id":4}
-{"username":"javi07","email":"javi07@gmail.com","name":"javier","password":"$2y$10$p5iPsaywU7ETWNgWCUvPYu7gDe6jHXydeG7GdYnThDMHIxNKc3l6i","id":5}
-{"username":"EricCartman2","email":"sergiorodasgonzalez@gmail.com","name":"Sergio Rodas","password":"$2y$10$hg5Gt89C8q8.vSgAsNNWgO\/djm6rH..GfofrlheOPjd1gnuV9.fjS","pais":"0","id":6}
+{"username":"Sergiorodas7","email":"sergiorodasbj@hotmail.com","name":"Sergio Rodas","password":"$2y$10$izjiNAJpWsbvw1LnoJsi1uuzDd7\/lNZPqbdPpiEnuVDqpbE6E2H46","pais":"Argentina","id":1}
+{"username":"Slayer78","email":"ulisesarmolla78@gmail.com","name":"Ulises Armolla","password":"$2y$10$iZ8DLlke1VHrb3eHD1VTvuWEX8KEKg3aFe2b3xbcKQ.YXvIsNhnSK","pais":"Argentina","id":2}
+{"username":"Stark","email":"axel11@gmail.com","name":"Axel Villanueva","password":"$2y$10$GzlGxOJkQDT5SuvKKUe8YeUxjrCzytPJhHtcdI6w\/aWyY03qd7P3O","pais":"Argentina","id":3}

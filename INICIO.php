@@ -3,6 +3,7 @@ require_once 'soporte.php';
 
 $results=$db->traerCategorias();
 
+
  ?>
 
 
@@ -42,26 +43,27 @@ $results=$db->traerCategorias();
             </article>
             <?php foreach ($results as $result): ?>
 
-            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#<?=str_replace(' ', '', $result['nombre'])?>Modal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="<?=$result['imagen']?>" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
+            <div class="col-sm-6 col-md-4 p-5 d-flex"><a href="#" data-toggle="modal" data-target="#<?=$result->getNombreSinEspacios()?>Modal" class="w-100"><img class="img-fluid rounded w-100 h-100 img-hov" src="<?=$result->getImagen()?>" alt="" style="box-shadow: 10px 10px 6px -6px #777;"></a></div>
 
-            <div class="modal fade" id="<?=str_replace(' ', '', $result['nombre'])?>Modal" tabindex="-1" role="dialog" aria-labelledby="<?=str_replace(' ', '', $result['nombre'])?>ModalTitle" aria-hidden="true">
+            <div class="modal fade" id="<?=$result->getNombreSinEspacios()?>Modal" tabindex="-1" role="dialog" aria-labelledby="<?=$result->getNombreSinEspacios()?>ModalTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                   <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="<?=str_replace(' ', '', $result['nombre'])?>ModalTitle"><?=$result['nombre']?></h5>
+                      <h5 class="modal-title" id="<?=$result->getNombreSinEspacios()?>ModalTitle"><?=$result->getNombre()?></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <img class="img-fluid rounded mx-1" src="<?=$result['imagen']?>" alt="">
+                    <img class="img-fluid rounded mx-1" src="<?=$result->getImagen()?>" alt="">
                     <div class="modal-body">
-                      <?=$result['descripcion']?>
+                      <?=$result->getDescripcion()?>
                     </div>
                   </div>
                 </div>
               </div>
 
             <?php endforeach;?>
+
 
             <?php if(!$auth->estaLogueado()): ?>
 

@@ -1,5 +1,4 @@
 <?php
-require_once "soporte.php";
 
 class Auth {
   private $db;

@@ -1,6 +1,5 @@
 <?php
-require_once "db_sql.php";
-require_once "soporte.php";
+
 
 class Validador
 {

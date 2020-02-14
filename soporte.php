@@ -11,7 +11,7 @@ require_once "clases/validador.php";
 $dbType = "mysql";
 switch ($dbType) {
   case 'mysql':
-  $db = new DB_SQL();
+  $db = new DB_SQL($db);
     break;
 
     case 'json':
@@ -21,6 +21,7 @@ switch ($dbType) {
 
 $auth = new Auth($db);
 $validador = new Validador($db);
+
 
 session_start();
 

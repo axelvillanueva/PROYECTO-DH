@@ -1,6 +1,4 @@
 <?php
-require_once "soporte.php";
-
 
 abstract class DB{
 
