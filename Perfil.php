@@ -1,29 +1,23 @@
 <?php
 
-include_once('funciones.php');
+require_once 'soporte.php';
 // Generando el perfil dinamicamente!
+if ($auth->estaLogueado())
+ {
+  $usuario = $auth->usuarioLogueado();
+ }
 
-// SI hay $_SESSION:
-if(loginController()) {
-    // 1 - Necesito traer el usuario y asignarlo a una variable, por suerte ya tengo una funcion de antes!
-    $usuario = buscamePorEmail($_SESSION["email"]);
-    $username = $usuario['email'];
-    // 2 - Por como arme la subida del avatar, necesito su ID por separado
-    $id = $usuario["id"];
-    // 3 - Dentro de la funcion glob() (http://php.net/manual/es/function.glob.php)
-    // concateno la carpeta img al nombre que se genera por default con la subida de las imagenes
-    // y un * para que de igual la extension
-    if (isset(glob("img/Usuarios/perfil$id.*")[0])) {
-        //Este if se ejecuta si esta seteado el indice 0. Es la unica manera de no recibir error
-        // a la hora de verificar esto.
-        $archivo = glob("img/Usuarios/perfil$id.*")[0];
-    } else {
-        $archivo = null;
+$mailDelUsuario = $usuario["email"];
+
+    if (isset(glob("img/Usuarios/$mailDelUsuario.*")[0]))
+    {
+        //Este if se ejecuta si esta seteado el indice 0. Es la unica manera de no recibir error a la hora de verificar esto.
+        $img = glob("img/Usuarios/$mailDelUsuario.*")[0];
+    } else
+    {
+        $img = null;
     }
-    //dd($archivo);
-    // como glob() devuelve un array, si no pongo el unico indice que llega,
-    // tira error array to string conversion cuando hago el echo de $archivo
-}
+
 
 
 
@@ -48,10 +42,10 @@ if(loginController()) {
 
           <header class="row">
             <div class="col-12 d-flex portada p-0"><img class="w-100" src="img/portada.jpg" alt=""></div>
-            <?php if(!loginController()): ?>
+            <?php if(!$auth->estaLogueado()): ?>
               <div class="col-12 p-0"> <?php include_once('navbar.php'); ?> </div>
             <?php endif;?>
-            <?php if(loginController()): ?>
+            <?php if($auth->estaLogueado()): ?>
               <div class="col-12 p-0"> <?php include_once('navbarlog.php'); ?> </div>
             <?php endif;?>
           </header>
@@ -60,27 +54,23 @@ if(loginController()) {
           <div class="container">
 
               <?php //SI EL CONTROLLER DE LOGIN DA FALSE, MUESTRO EL SIGUIENTE BLOQUE ?>
-              <?php if(!loginController()): ?>
+              <?php if(!$auth->estaLogueado()): ?>
               <div class="alert alert-danger" role="alert">
                   No estas autorizado en este sistema <a href="registro.php" class="alert-link">Registrate!</a>
               </div>
               <?php endif;?>
-              <?php if(loginController()): ?>
+              <?php if($auth->estaLogueado()): ?>
               <div class="row justify-content-center">
 
                   <div class="card col-md-4 col-sm-8 my-5" style="background: url(img/bg-117.jpg); border: solid 4px;">
-                  <?php if(isset($archivo)):
-                      // SI hay archivo, mostramelo
-                  ?>
-                      <img class="card-img-top rounded-circle mt-3" style="align-self:center; width: 72%; height: 250px; border: #863c3c solid 4px;"src="<?=$archivo ?>" alt="Card image cap">
-                  <?php else:
-                      // else, mostrame la imagen default
-                      ?>
-                      <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
+                  <?php if(isset($img)):?><!--Si HAY imagen, mostrala-->
+                      <img class="card-img-top rounded-circle mt-3" style="align-self:center; width: 72%; height: 250px; border: #863c3c solid 4px;" src="<?=$img ?>" alt="Card image cap">
+                  <?php else:?><!--Si no, mostrá la imagen default-->
+                      <img class="card-img-top rounded-circle mt-3" style="align-self:center; width: 72%; height: 250px; border: #863c3c solid 4px;" src="img/logo.jpg" alt="Card image cap">
                   <?php endif; ?>
                       <div class="card-body text-center">
-                          <h3 class="card-title" style="color:black;">"<?=$usuario['name']?>" </h3>
-                          <p class="card-text my-4" style="font-size: larger; font-weight: bold; color: black;">Nivel: 0 <br> Trivias resueltas: 0 </p>
+                          <h3 class="card-title" style="color:black;">"<?=$usuario['nombre']?>" </h3>
+                          <p class="card-text my-4" style="font-size: larger; font-weight: bold; color: black;">Nivel: 0 <br> Trivias resueltas: 0 <br> País: <?=$usuario['pais']?></p>
                           <a href="Inicio.php" class="btn btn-danger">Ir a jugar!</a>
                       </div>
                   </div>

@@ -1,34 +1,29 @@
 <?php
-include_once('funciones.php');
-$email="";
+require_once 'soporte.php';
+$emailPers="";
+$errores = [];
 
-if($_POST) {
-  $errores=[];
-    // 1 - Busco si el email está registrado
-    $usuario = buscamePorEmail(strtolower($_POST['email']));
-    if($usuario !== null) {
-    // 2 - Si es distinto de null, significa que está registrado el email. Hago la persistencia y solo queda verificar la contraseña.
-        $email=$_POST['email'];
-        if(password_verify($_POST['password'], $usuario['password']) === true) {
-          // 3- Si la contraseña es correcta inicio sesión
-          if ($_POST['Recordarme']!=NULL) {
-            login($usuario,true);
-          }else {
-            login($usuario);
-            // Si no son correctos los datos ingresados muestro los errores
-        }
-      }else {
-          $errores["password"] = "La contraseña es incorrecta";
-        }
-    }else {
-      $errores["email"] = "El email no está registrado";
-    }
-    if(loginController()) {
-        header('Location: Perfil.php');
-        // 4- Lo derivo a inicio y corto la ejecucion de codigo.
-        exit;
-    }
-}
+	if ($_POST)
+	{
+		$errores = $validador->validarLogin($_POST);
+		//Persistencia
+		if (!isset($errores["email"]))
+		{
+			$emailPers = $_POST["email"];
+		}
+
+		if (count($errores) == 0)
+		{
+			// LOGUEAR
+      $auth->loguear($_POST["email"]);
+			if (isset($_POST["recordarme"]))
+			{
+				//Quiere que lo recuerde
+			$auth->recordame($_POST["email"]);
+			}
+      header("Location: Perfil.php");
+		}
+	}
 
  ?>
 
@@ -52,10 +47,10 @@ if($_POST) {
 
                                             <!--BARRA DE NAVEGACIÓN -->
     <header class="row pb-4">
-      <?php if(!loginController()): ?>
+      <?php if(!$auth->estaLogueado()): ?>
         <div class="col-12 p-0"> <?php include_once('navbar.php'); ?> </div>
       <?php endif;?>
-      <?php if(loginController()): ?>
+      <?php if($auth->estaLogueado()): ?>
         <div class="col-12 p-0"> <?php include_once('navbarlog.php'); ?> </div>
       <?php endif;?>
     </header>
@@ -63,13 +58,13 @@ if($_POST) {
 
    <div class="container">
 
-     <?php if(loginController()): ?>
+     <?php if($auth->estaLogueado()): ?>
        <div class="alert alert-danger" role="alert">
            Ya has iniciado sesión <a href="INICIO.php" class="alert-link">Regresa a inicio!</a>
        </div>
      <?php endif;?>
 
-    <?php if(!loginController()): ?>
+    <?php if(!$auth->estaLogueado()): ?>
     <section class="row contenedor justify-content-center pt-5">
       <div class="container col-lg-4 col-md-6 border rounded text-white login-caja px-4" style="background:rgba(186, 59, 59, 0.60);">
         <img class="position-absolute rounded-circle border border-dark d-block lobo" src="img/logo.jpg" alt="logo de ejemplo" style="width: 100px; top: -50px; left: calc(50% - 50px);">   <!--LOGO-->
@@ -79,8 +74,8 @@ if($_POST) {
           <div class="row">
                                                   <!-- EMAIL -->
             <div class="col-12 form-group">
-              <label class="font-weight-bold p-o m-0" for="email">Correo electrónico</label>
-                <input type="email" name="email" id="password" class=" w-100 mb-1 form-control" placeholder="Ingresa tu correo electrónico" value='<?=$email?>' maxlength="50">
+              <label for="email" class="font-weight-bold p-o m-0">Correo electrónico</label>
+                <input type="email" name="email" id="password" class=" w-100 mb-1 form-control" placeholder="Ingresa tu correo electrónico" value='<?=$emailPers?>' maxlength="50">
                 <span id='register_email_errorloc' class='error'><?=isset($errores["email"])?$errores["email"]:""?></span>
             </div>
                                                   <!-- PASSWORD -->

@@ -1,9 +1,4 @@
-<?php
-
-
- ?>
-
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  <head>
      <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet">

@@ -1,5 +1,5 @@
 <?php
-
+/*
 function crearUsuario($datos) //Crea un array con los datos enviados por post y genera una ID
 {
     $usuario = [
@@ -115,7 +115,8 @@ function buscamePorUser($username)//Busco si existe en la base de datos un usern
     return null;
 }
 
-function login($usuario,$recordar=null) {
+/*function login($usuario,$recordar=null)
+ {
     // Una vez se cumpla la validacion del login contra la base de datos
     // seteamos como identificador de la misma, el email del usuario:
     //Creo una cookie que expire en 1hs a menos que hagan click en la opción "recordarme"
@@ -129,10 +130,10 @@ function login($usuario,$recordar=null) {
       setcookie("email", $usuario["email"], time()+3600);
     }
 
-}
+}*/
 
 
-function loginController()
+/*function loginController()
 {
     // SI la superglobal con el indice $_SESSION['email'] esta seteada
     if (isset($_SESSION["email"])) {
@@ -151,8 +152,9 @@ function loginController()
             return false;
         }
     }
-}
+}*/
 // 3 - Funcion de Logout
+/*
 function logout()
 {
     // corto la session
@@ -160,8 +162,3 @@ function logout()
     // seteo la cookie con time en negativo para que tambien se borre
     setcookie("email", "", time() -1);
 }
-
-
-
-
- ?>

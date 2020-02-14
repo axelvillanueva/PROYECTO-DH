@@ -1,6 +1,6 @@
 <?php
-    include_once('funciones.php');
+    require_once 'soporte.php';
 
-    logout();
+    $auth->logout();
     header("Location: INICIO.php");
 ?>

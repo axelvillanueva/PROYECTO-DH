@@ -1,7 +1,7 @@
 <?php
-  include_once('funciones.php');
+  require_once 'soporte.php';
 
-$Paises=
+$paises=
 [
   "Argentina" => "Argentina","Afganistán" => "Afganistán","Albania" => "Albania","Alemania" => "Alemania","Andorra" => "Andorra","Angola" => "Angola","Antigua y Barbuda" => "Antigua y Barbuda","Arabia Saudita" => "Arabia Saudita","Argelia" => "Argelia","Armenia" => "Armenia","Australia" => "Australia","Austria" => "Austria","Azerbaiyán" => "Azerbaiyán","Bahamas" => "Bahamas","Bangladés" => "Bangladés","Barbados" => "Barbados","Baréin" => "Baréin","Bélgica" => "Bélgica","Belice" => "Belice","Benín" => "Benín","Bielorrusia" => "Bielorrusia","Birmania" => "Birmania","Bolivia" => "Bolivia","Bosnia y Herzegovina" => "Bosnia y Herzegovina","Botswana" =>
 "Botswana","Brasil" => "Brasil","Brunéi" => "Brunéi","Bulgaria" => "Bulgaria","Burkina Faso" => "Burkina Faso","Burundi" => "Burundi","Bután" => "Bután","Cabo Verde" => "Cabo Verde","Camboya" => "Camboya","Camerún" => "Camerún","Canadá" => "Canadá","Catar" => "Catar","Chad" => "Chad","Chile" => "Chile","China" => "China","Chipre" => "Chipre","Ciudad del Vaticano" => "Ciudad del Vaticano","Colombia" => "Colombia","Comoras" => "Comoras","Corea del Norte" =>
@@ -12,73 +12,44 @@ $Paises=
 "Pakistán","Palaos" => "Palaos","Panamá" => "Panamá","Papúa Nueva Guinea" => "Papúa Nueva Guinea","Paraguay" => "Paraguay","Perú" => "Perú","Polonia" => "Polonia","Portugal" => "Portugal","Reino Unido" => "Reino Unido","República Centroafricana" => "República Centroafricana","República Checa" => "República Checa","República de Macedonia" => "República de Macedonia","República del Congo" => "República del Congo","República Democrática del Congo" => "República Democrática del Congo","República Dominicana" => "República Dominicana","República Sudafricana" => "República Sudafricana","Ruanda" => "Ruanda","Rumanía" => "Rumanía","Rusia" => "Rusia","Samoa" => "Samoa","San Cristóbal y Nieves" => "San Cristóbal y Nieves","San Marino" => "San Marino","San Vicente y las Granadinas" => "San Vicente y las Granadinas","Santa Lucía" => "Santa Lucía","Santo Tomé y Príncipe" => "Santo Tomé y Príncipe","Senegal" => "Senegal","Serbia" => "Serbia","Seychelles" => "Seychelles","Sierra Leona" =>
 "Sierra Leona","Singapur" => "Singapur","Siria" => "Siria","Somalia" => "Somalia","Sri Lanka" => "Sri Lanka","Suazilandia" => "Suazilandia","Sudán" => "Sudán","Sudán del Sur" => "Sudán del Sur","Suecia" => "Suecia","Suiza" => "Suiza","Surinam" => "Surinam","Tailandia" => "Tailandia","Tanzania" => "Tanzania","Tayikistán" => "Tayikistán","Timor Oriental" => "Timor Oriental","Togo" => "Togo","Tonga" => "Tonga","Trinidad y Tobago" => "Trinidad y Tobago","Túnez" => "Túnez","Turkmenistán" => "Turkmenistán","Turquía" => "Turquía","Tuvalu" => "Tuvalu","Ucrania" => "Ucrania","Uganda" => "Uganda","Uruguay" => "Uruguay","Uzbekistán" => "Uzbekistán","Vanuatu" => "Vanuatu","Venezuela" => "Venezuela","Vietnam" => "Vietnam","Yemen" => "Yemen","Yibuti" => "Yibuti","Zambia" => "Zambia","Zimbabue" => "Zimbabue"
 ];
-$nombre="";
-$email="";
-$usuario="";
-$contrasenia="";
+$namePers="";
+$emailPers="";
+$usernamePers="";
 
-if($_POST) {
+$errores=[];
+
+if($_POST)
+  {
     // 1 - Validación de datos
-    $errores=[];
+    $errores = $validador->validarInformacion($_POST);
+    // 2 - Persistencia
+    if (!isset($errores["name"]))
+    {
+      $namePers = $_POST["name"];
+    }
+    if (!isset($errores["email"]))
+    {
+			$emailPers = $_POST["email"];
+		}
+		if (!isset($errores["username"])) {
+			$usernamePers = $_POST["username"];
+		}
 
-    $name = trim($_POST['name']);
-    if (!$_POST["name"]) {
-        $errores["name"]= "El campo no debe estar vacío";
-    }else if (strlen($_POST["name"])<3||strlen($_POST["name"])>30) {
-        $errores["name"]= "El campo debe tener entre 3 y 30 caracteres";
-    } else{
-    $nombre= $_POST["name"];
+    // 3 - Crear Usuario
+      if (count($errores) == 0) {
+    $usuario = new Usuario($_POST['name'], $_POST['email'], $_POST['password'], $_POST['username'], $_POST['country']);
+
+    $mail = $usuario->getEmail();
+    // 4 - Guardar imagen
+    $usuario->guardarImagen($usuario);
+    // 5 - Guardar Usuario
+    $db->guardarUsuario($usuario);
+    //loguear
+    $auth->loguear($_POST["email"]);
+    //Redirigir al perfil
+    header("Location:Perfil.php?mail=$mail");exit;
   }
 
-
-    $username = trim($_POST['username']);
-
-    if (!$_POST["username"]) {
-        $errores["username"]= "El campo no debe estar vacío";
-    }else if (strlen($_POST["username"])<3||strlen($_POST["username"])>15) {
-        $errores["username"]= "El campo debe tener entre 3 y 15 caracteres";
-    }elseif (buscamePorUser($username)['username'] == $username) {
-        $errores["username"]= "El nombre de usuario ya existe";
-    } else{
-      $usuario= $_POST["username"];
-    }
-
-    $email = trim($_POST['email']);
-
-    if (!$_POST["email"]) {
-        $errores["email"]= "El campo no debe estar vacío";
-    }else if (!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)) {
-        $errores["email"]= "El email ingresado no es valido";
-    }elseif (buscamePorEmail($email)['email'] == $email) {
-        $errores["email"]= "El email ingresado ya está en uso";
-    } else{
-      $email= $_POST["email"];
-    }
-
-    if($_POST['password'] == "") {
-        $errores['password'] = "El campo no debe estar vacío";
-    } elseif (strlen($_POST['password']) <= 5) {
-        $errores['password'] = "La contraseña debe tener entre 8 y 25 caracteres";
-    } elseif ($_POST['password'] != $_POST['confpassword']) {
-        $errores['password'] = "Las contraseñas no coinciden";
-    }
-      $pais= $_POST["country"];
-
-    // 2 - Crear Usuario
-    if(count($errores) == 0) {
-        $usuario = crearUsuario($_POST);
-    // 3 - Validación de la imagen
-        $erroresAvatar = validarImagen($usuario);
-    // 4 - Agrego los errores del avatar a $errores
-        $errores = array_merge($errores, $erroresAvatar);
-    // 5 - vuelvo a validar $errores
-        if(count($errores) == 0) {
-    // 6 - Guardo usuario y lo mando a loguearse
-            guardarUsuario($usuario);
-            header('Location: log-in.php');
-            exit;
-        }
-    }
 }
 
  ?>
@@ -103,15 +74,15 @@ if($_POST) {
 
                                               <!--BARRA DE NAVEGACIÓN -->
       <header class="row pb-4">
-        <?php if(!loginController()): ?>
+        <?php if(!$auth->estaLogueado()): ?>
           <div class="col-12 p-0"> <?php include_once('navbar.php'); ?> </div>
         <?php endif;?>
-        <?php if(loginController()): ?>
+        <?php if($auth->estaLogueado()): ?>
           <div class="col-12 p-0"> <?php include_once('navbarlog.php'); ?> </div>
         <?php endif;?>
       </header>
 
-      <?php if(loginController()): ?>
+      <?php if($auth->estaLogueado()): ?>
       <div class="container">
         <div class="alert alert-danger" role="alert">
             Ya estás registrado. <a href="INICIO.php" class="alert-link">Regresa a inicio!</a>
@@ -120,7 +91,7 @@ if($_POST) {
 
       <?php endif;?>
 
-      <?php if(!loginController()): ?>                                        <!--FORMULARIO -->
+      <?php if(!$auth->estaLogueado()): ?>                                        <!--FORMULARIO -->
       <div class="px-5 mx-4 mb-5 pb-5" >
 
         <section class="row justify-content-center contenedor-formulario pt-5">
@@ -134,14 +105,14 @@ if($_POST) {
             <div class="form-group floating-label-form-group controls mx-4">
               <label for="country" class="font-weight-bold">País:</label>
                 <select name="country" class="col-lg-12 md-12 xs-12 text-white" style="background: #c44545;">
-                  <?php foreach ($Paises as $posicion=>$Pais):?>
+                  <?php foreach ($paises as $posicion=>$pais):?>
                     <?php if($_POST['country'] == $posicion): ?>
                       <option value="<?=$posicion?>" selected>
-                        <?=$Pais?>
+                        <?=$pais?>
                       </option>
                     <?php else : ?>
                       <option value="<?=$posicion?>">
-                        <?=$Pais?>
+                        <?=$pais?>
                       </option>
                     <?php endif; ?>
                   <?php endforeach; ?>
@@ -152,7 +123,7 @@ if($_POST) {
           <div class="form-group">        <!--NOMBRE-->
             <div class="form-group floating-label-form-group controls mx-4">
               <label for='name' class="font-weight-bold">Nombre completo:</label>
-              <input class=" w-100 mb-1 form-control"  id="name" name="name"type="text" placeholder="Escriba aquí su nombre" value='<?=$nombre?>' maxlength="50">
+              <input class=" w-100 mb-1 form-control"  id="name" name="name"type="text" placeholder="Escriba aquí su nombre" value='<?=$namePers?>' maxlength="50">
               <span id='register_name_errorloc' class='error'><?=isset($errores["name"])?$errores["name"]:""?></span>
             </div>
           </div>
@@ -160,7 +131,7 @@ if($_POST) {
           <div class="form-group">        <!--NOMBRE DE USUARIO-->
             <div class="form-group floating-label-form-group controls mx-4">
               <label for='username' class="font-weight-bold">Nombre de usuario:</label>
-              <input class=" w-100 mb-1 form-control" name='username' id="username" type="text" placeholder="Escriba un nombre de usuario" value='<?=$usuario?>' maxlength="50">
+              <input class=" w-100 mb-1 form-control" name='username' id="username" type="text" placeholder="Escriba un nombre de usuario" value='<?=$usernamePers?>' maxlength="50">
               <span id='register_username_errorloc' class='error'><?=isset($errores["username"])?$errores["username"]:""?></span>
             </div>
           </div>
@@ -168,7 +139,7 @@ if($_POST) {
           <div class="form-group">        <!--CORREO ELECTRÓNICO-->
             <div class="form-group floating-label-form-group controls mx-4">
               <label for='email' class="font-weight-bold">Correo electrónico:</label>
-              <input class="w-100 mb-1 form-control" type="email" placeholder="Escriba aquí su correo electrónico" name='email' id='email' value='<?=$email?>' maxlength="50">
+              <input class="w-100 mb-1 form-control" type="email" placeholder="Escriba aquí su correo electrónico" name='email' id='email' value='<?=$emailPers?>' maxlength="50">
              <span id='register_email_errorloc' class='error'><?=isset($errores["email"])?$errores["email"]:""?></span>
             </div>
           </div>
@@ -186,7 +157,7 @@ if($_POST) {
             <div class="form-group floating-label-form-group controls mx-4">
               <label for='password' class="font-weight-bold">Confirmar contraseña:</label><br/>
               <div class='pwdwidgetdiv' id='thepwddiv' ></div>
-              <input class="w-100 mb-1 form-control"  type='password' name='confpassword' id='password' maxlength="50" placeholder="Vuelva a escribir la contraseña">
+              <input class="w-100 mb-1 form-control"  type='password' name='cpassword' id='password' maxlength="50" placeholder="Vuelva a escribir la contraseña">
               <span id='register_password_errorloc' class='error'><?=isset($errores["password"])?$errores["password"]:""?></span>
             </div>
           </div>

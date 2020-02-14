@@ -1,6 +1,6 @@
 <?php
 
-include_once('funciones.php');
+require_once 'soporte.php';
 
  ?>
  <!DOCTYPE html>
@@ -21,10 +21,10 @@ include_once('funciones.php');
   <div class="container-fluid">
   <!--BARRA DE NAVEGACIÓN -->
   <header class="row pb-4">
-    <?php if(!loginController()): ?>
+    <?php if(!$auth->estaLogueado()): ?>
       <div class="col-12 p-0"> <?php include_once('navbar.php'); ?> </div>
     <?php endif;?>
-    <?php if(loginController()): ?>
+    <?php if($auth->estaLogueado()): ?>
       <div class="col-12 p-0"> <?php include_once('navbarlog.php'); ?> </div>
     <?php endif;?>
   </header>

@@ -1,13 +1,17 @@
 <?php
 
-include_once('funciones.php');
-$usuario = buscamePorEmail($_SESSION["email"]);
+require_once 'soporte.php';
+$usuario=$db->traerPorMail($_SESSION["logueado"]);
 $username = $usuario['email'];
-$id = $usuario["id"];
-if (isset(glob("img/Usuarios/perfil$id.*")[0])) {
-  $archivo = glob("img/Usuarios/perfil$id.*")[0];
-} else {
-  $archivo = null;
+$mailDelUsuario = $usuario["email"];
+
+if (isset(glob("img/Usuarios/$mailDelUsuario.*")[0]))
+{
+    //Este if se ejecuta si esta seteado el indice 0. Es la unica manera de no recibir error a la hora de verificar esto.
+    $img = glob("img/Usuarios/$mailDelUsuario.*")[0];
+} else
+{
+    $img = null;
 }
 
 
@@ -39,7 +43,7 @@ if (isset(glob("img/Usuarios/perfil$id.*")[0])) {
 
       </ul>
       <div class="nav-item dropdown" style="right:20px;">
-        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#" style="text-align-last: end; color: white;"> <img src="<?php if(isset($archivo)):?><?=$archivo ?><?php else:?>img/logo.jpg<?php endif; ?>" class="rounded-circle" alt="" style="height: 45px; width:45px;"> </a>
+        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable" href="#" style="text-align-last: end; color: white;"> <img src="<?php if(isset($img)):?><?=$img?><?php else:?>img/logo.jpg<?php endif; ?>" class="rounded-circle" alt="" style="height: 45px; width:45px;"> </a>
         <div class="dropdown-menu px-3 pt-3 pb-4" style="background: black; right: 0px; left: auto; text-align-last: center; border-left: solid 3px; border-right:solid 3px; border-bottom:solid 3px;">
           <a class="usuario item text-muted"><?=$usuario['username']?> <br> <?=$usuario['email']?> </a>
           <a class="enlace-nav dropdown-item text-white mt-3 pt-3" style="border-top: red solid 1px;" href="Perfil.php">Perfil</a>

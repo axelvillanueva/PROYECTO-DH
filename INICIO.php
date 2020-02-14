@@ -1,9 +1,7 @@
 <?php
-include_once('funciones.php');
-require_once 'pdo.php';
-$query=$db->prepare('SELECT * FROM categorias ORDER BY id;');
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_ASSOC);
+require_once 'soporte.php';
+
+$results=$db->traerCategorias();
 
  ?>
 
@@ -27,17 +25,17 @@ $results=$query->fetchAll(PDO::FETCH_ASSOC);
 
           <header class="row">
             <div class="col-12 d-flex portada p-0"><img class="w-100" src="img/portada.jpg" alt=""></div>
-            <?php if(!loginController()): ?>
+            <?php if(!$auth->estaLogueado()): ?>
             <div class="col-12 p-0"> <?php include_once('navbar.php'); ?> </div>
             <?php endif;?>
-            <?php if(loginController()): ?>
+            <?php if($auth->estaLogueado()): ?>
             <div class="col-12 p-0"> <?php include_once('navbarlog.php'); ?> </div>
             <?php endif;?>
 
           </header>
 
 
-          <section class="row rounded pt-4 <?php if(loginController()): ?> pb-3 <?php endif;?>">
+          <section class="row rounded pt-4 <?php if($auth->estaLogueado()): ?> pb-3 <?php endif;?>">
             <article class="col-12 pt-5 pb-4" style="text-align: -webkit-center;">
               <h1 class="col-md-6 col-xs-12 py-3 mt-5" style="color:white; font-family: serif; font-size: 3em;font-weight:bold; background:crimson; opacity:90%">Demuestra tu conocimiento</h1>
               <hr class="col-7 border">
@@ -65,7 +63,7 @@ $results=$query->fetchAll(PDO::FETCH_ASSOC);
 
             <?php endforeach;?>
 
-            <?php if(!loginController()): ?>
+            <?php if(!$auth->estaLogueado()): ?>
 
             <div class="container" style="padding-top:7%;margin-bottom: 7%;">
               <div class="card-deck text-center">
