@@ -10,10 +10,16 @@ class Usuario {
   private $username;
   private $pais;
 
-  public function __construct($nombre, $email, $password, $username, $pais){
+  public function __construct($nombre, $email, $password, $username, $pais, $id = null){
+    if ($id == null) {
+      $this->setPassword($password);
+    } else
+    {
+      $this->password = $password;
+    }
     $this->nombre = $nombre;
     $this->email = $email;
-    $this->setPassword($password);
+
     $this->username = $username;
     $this->pais = $pais;
   }

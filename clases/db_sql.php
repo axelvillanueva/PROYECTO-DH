@@ -74,11 +74,12 @@ class DB_SQL extends DB{
   		$query->bindValue(":password", $usuario->getPassword(), PDO::PARAM_STR);
   		$query->bindValue(":username", $usuario->getUsername(), PDO::PARAM_STR);
   		$query->bindValue(":pais", $usuario->getPais(), PDO::PARAM_STR);
+      $query->execute();
 
   		$id = $db->lastInsertId();
       $usuario->setId($id);
 
-  		$query->execute();
+
 
   		return $usuario;
 
