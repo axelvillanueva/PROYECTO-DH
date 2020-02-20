@@ -76,7 +76,7 @@ $errores = [];
             <div class="col-12 form-group">
               <label for="email" class="font-weight-bold p-o m-0">Correo electrónico</label>
                 <input type="email" name="email" id="password" class=" w-100 mb-1 form-control" placeholder="Ingresa tu correo electrónico" value='<?=$emailPers?>' maxlength="50">
-                <span id='register_email_errorloc' class='error'><?=isset($errores["email"])?$errores["email"]:""?></span>
+                <span id='register_email_errorloc' class='error'><?=isset($errores["mail"])?$errores["mail"]:""?></span>
             </div>
                                                   <!-- PASSWORD -->
             <div class="col-12 form-group">

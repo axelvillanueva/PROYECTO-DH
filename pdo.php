@@ -8,7 +8,7 @@ $opt = [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ];
 try {
-  $db = new PDO($dsn, $user, $pass, $opt);
+  $conexion = new PDO($dsn, $user, $pass, $opt);
 } catch (Exception $e) {
   echo "La conexion a la base de datos falló: " . $e->getMessage();
 }

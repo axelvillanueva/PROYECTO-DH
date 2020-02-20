@@ -1,9 +1,5 @@
 <?php
 
-require_once "db.php";
-require_once "usuario.php";
-require_once "categoria.php";
-
 
 class DB_SQL extends DB{
     private $db;
@@ -11,6 +7,15 @@ class DB_SQL extends DB{
     public function __construct($db)
   {
     $this->db=$db;
+  }
+  public function getDb()
+  {
+    return $this->db;
+  }
+
+  public function setDb($db)
+  {
+  $this->db = $db;
   }
 
   public function crearTablaUsuarios()

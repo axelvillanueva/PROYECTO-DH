@@ -6,12 +6,13 @@ require_once "clases/db_sql.php";
 require_once "clases/db.php";
 require_once "clases/usuario.php";
 require_once "clases/validador.php";
+require_once "clases/categoria.php";
 
 
 $dbType = "mysql";
 switch ($dbType) {
   case 'mysql':
-  $db = new DB_SQL($db);
+  $db = new DB_SQL($conexion);
     break;
 
     case 'json':
